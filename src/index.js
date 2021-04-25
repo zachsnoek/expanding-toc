@@ -5,7 +5,7 @@ import "./styles.css";
 const { ids, classes } = selectors;
 
 const createTitleElement = (title) => {
-    const titleElement = document.createElement("div");
+    const titleElement = document.createElement("h2");
 
     titleElement.id = ids.titleElement;
     titleElement.innerText = title;
@@ -13,13 +13,13 @@ const createTitleElement = (title) => {
     return titleElement;
 };
 
-const createHeaderLinkElement = (headerText, headerId) => {
+const createHeaderLinkElement = (id, text) => {
     const linkElement = document.createElement("a");
 
     linkElement.classList.add(classes.headerLinkElement);
     linkElement.classList.add(classes.headerLinkElementHidden);
-    linkElement.href = `${window.location.pathname}#${headerId}`;
-    linkElement.innerText = headerText;
+    linkElement.href = `${window.location.pathname}#${id}`;
+    linkElement.innerText = text;
 
     return linkElement;
 };
@@ -27,20 +27,22 @@ const createHeaderLinkElement = (headerText, headerId) => {
 const init = (userOptions) => {
     const options = { ...defaultOptions, ...userOptions };
 
-    const postContainerElement = document.getElementById(options.containerId);
+    const contentContainerElement = document.getElementById(
+        options.containerId
+    );
 
-    if (!postContainerElement) {
+    if (!contentContainerElement) {
         console.error(
             `Table of contents could not be generated for content container with ID '${options.containerId}'.`
         );
         return;
     }
 
-    const tableOfContentsContainer = document.getElementById(
+    const tocContainerElement = document.getElementById(
         ids.tocContainerElement
     );
 
-    if (!tableOfContentsContainer) {
+    if (!tocContainerElement) {
         console.error(
             [
                 `Table of contents container with ID '${ids.tocContainerElement}' could not be found.`,
@@ -50,25 +52,23 @@ const init = (userOptions) => {
         return;
     }
 
-    const headerElements = postContainerElement.querySelectorAll(
-        options.headers.join(", ")
+    const headerElements = contentContainerElement.querySelectorAll(
+        options.headerSelectors.join(", ")
     );
 
     if (headerElements.length === 0) {
         console.error(
-            `Table of contents could not be generated for selectors '${options.headers}'.`
+            `Table of contents could not be generated for selectors '${options.headerSelectors}'.`
         );
         return;
     }
 
     if (options.title !== false) {
         const titleElement = createTitleElement(options.title);
-        tableOfContentsContainer.append(titleElement);
+        tocContainerElement.append(titleElement);
     }
 
-    for (let i = 0; i < headerElements.length; i++) {
-        const header = headerElements[i];
-
+    for (const header of headerElements) {
         if (!header.innerText) {
             continue;
         }
@@ -77,11 +77,11 @@ const init = (userOptions) => {
             header.id = toKebabCase(header.innerText);
         }
 
-        const headerElement = createHeaderLinkElement(
-            header.innerText,
-            header.id
+        const headerLinkElement = createHeaderLinkElement(
+            header.id,
+            header.innerText
         );
-        tableOfContentsContainer.append(headerElement);
+        tocContainerElement.append(headerLinkElement);
     }
 
     const headerLinkElements = document.getElementsByClassName(
@@ -96,14 +96,8 @@ const init = (userOptions) => {
         }
     };
 
-    tableOfContentsContainer.addEventListener(
-        "mouseover",
-        toggleHeaderLinkClasses
-    );
-    tableOfContentsContainer.addEventListener(
-        "mouseout",
-        toggleHeaderLinkClasses
-    );
+    tocContainerElement.addEventListener("mouseover", toggleHeaderLinkClasses);
+    tocContainerElement.addEventListener("mouseout", toggleHeaderLinkClasses);
 };
 
 export { init };

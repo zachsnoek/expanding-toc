@@ -1,7 +1,7 @@
 const defaultOptions = {
     title: "Table of Contents",
     containerId: "toc-content",
-    headers: ["h2", "h3", "h4"],
+    headerSelectors: ["h2", "h3", "h4"],
 };
 
 const selectors = {
