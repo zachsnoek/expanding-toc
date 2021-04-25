@@ -1,7 +1,9 @@
 ## Getting started
 
-## Running locally
+## Build
 
-1. `yarn`
-2. `yarn dev`
-3. Navigate to `http://localhost:3000`
+Run `$ yarn && yarn build`.
+
+## Run locally
+
+Run `$ yarn dev`; the dev server will be live at `http://localhost:3000`.
