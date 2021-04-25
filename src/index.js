@@ -89,8 +89,7 @@ const init = (userOptions) => {
     );
 
     const toggleHeaderLinkClasses = () => {
-        for (let i = 0; i < headerLinkElements.length; i++) {
-            const header = headerLinkElements[i];
+        for (const header of headerLinkElements) {
             header.classList.toggle(classes.headerLinkElementHidden);
             header.classList.toggle(classes.headerLinkElementVisible);
         }
