@@ -2,17 +2,7 @@ const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
-    mode: "development",
     entry: "./src/index.js",
-    output: {
-        path: path.resolve(__dirname, "dist"),
-        filename: "toc.js",
-        library: {
-            name: "toc",
-            type: "umd",
-        },
-        clean: true,
-    },
     module: {
         rules: [
             {
@@ -22,8 +12,13 @@ module.exports = {
         ],
     },
     plugins: [new MiniCssExtractPlugin({ filename: "toc.css" })],
-    devServer: {
-        static: path.join(__dirname, "examples"),
-        port: 3000,
+    output: {
+        path: path.resolve(__dirname, "dist"),
+        filename: "toc.js",
+        library: {
+            name: "toc",
+            type: "umd",
+        },
+        clean: true,
     },
 };
