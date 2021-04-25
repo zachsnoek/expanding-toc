@@ -1,0 +1,21 @@
+{
+    "name": "toc",
+    "version": "1.0.0",
+    "description": "Table of contents generator.",
+    "main": "index.js",
+    "scripts": {
+        "build": "webpack",
+        "dev": "webpack serve"
+    },
+    "author": "Zachary D. Snoek",
+    "license": "MIT",
+    "devDependencies": {
+        "css-loader": "^5.2.4",
+        "mini-css-extract-plugin": "^1.5.0",
+        "webpack": "^5.35.1",
+        "webpack-cli": "^4.6.0"
+    },
+    "dependencies": {
+        "webpack-dev-server": "^4.0.0-beta.0"
+    }
+}
