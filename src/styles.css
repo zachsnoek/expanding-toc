@@ -1,9 +1,10 @@
 :root {
-    --title-color: seagreen;
+    --title-color: #000;
     --title-font-size: 0.9rem;
     --header-link-font-size: 1rem;
-    --header-link-color: slateblue;
-    --header-link-border-bottom-color: slateblue;
+    --header-link-color: #3b3b3b;
+    --header-link-hover-color: #000;
+    --header-link-border-bottom-color: #3b3b3b;
 }
 
 #toc {
@@ -21,12 +22,13 @@
 
 #toc_title-header {
     font-size: var(--title-font-size);
-    margin-bottom: 10px;
     color: var(--title-color);
+    margin-bottom: 10px;
 }
 
 .toc_header-link {
     font-size: var(--header-link-font-size);
+    color: var(--header-link-color);
     display: inline-block;
     max-width: 100%;
     margin-bottom: 2px;
@@ -34,7 +36,10 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    color: var(--header-link-color);
+}
+
+.toc_header-link:hover {
+    color: var(--header-link-hover-color);
 }
 
 .toc_header-link:last-child {
@@ -42,14 +47,12 @@
 }
 
 .toc_header-link-visible {
-    border-bottom-width: 0;
-    /* max-height: 100px; */
     height: 2rem;
-    /* border-bottom-style: solid;
-    border-bottom-color: slateblue; */
-    transition-property: height; /*, border-bottom-width;*/
+    border-bottom-width: 0;
+    transition-property: height;
     transition: all 0.3s ease-out;
 }
+
 .toc_header-link-hidden {
     height: 0;
     overflow-x: hidden;
@@ -57,7 +60,6 @@
     border-bottom-width: 3px;
     border-bottom-style: solid;
     border-bottom-color: var(--header-link-border-bottom-color);
-
-    transition-property: height; /*, border-bottom-width;*/
+    transition-property: height;
     transition: all 0.2s ease-in;
 }
