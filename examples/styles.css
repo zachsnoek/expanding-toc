@@ -3,11 +3,16 @@ body {
     font-size: larger;
 }
 
-#toc-content {
+#toc-content,
+#post-content {
     width: 500px;
     margin: auto;
 }
 
 img {
     width: 100%;
+}
+
+a {
+    color: inherit;
 }
