@@ -1,11 +1,11 @@
-import { toKebabCase } from "./utils/toKebabCase";
-import { defaultOptions, selectors } from "./constants";
-import "./styles.css";
+import { toKebabCase } from './utils/toKebabCase';
+import { defaultOptions, selectors } from './constants';
+import './styles.css';
 
 const { ids, classes } = selectors;
 
 const createTitleElement = (title) => {
-    const titleElement = document.createElement("h2");
+    const titleElement = document.createElement('h2');
 
     titleElement.id = ids.titleElement;
     titleElement.innerText = title;
@@ -14,7 +14,7 @@ const createTitleElement = (title) => {
 };
 
 const createHeaderLinkElement = (id, text) => {
-    const linkElement = document.createElement("a");
+    const linkElement = document.createElement('a');
 
     linkElement.classList.add(classes.headerLinkElement);
     linkElement.classList.add(classes.headerLinkElementHidden);
@@ -27,9 +27,7 @@ const createHeaderLinkElement = (id, text) => {
 const init = (userOptions) => {
     const options = { ...defaultOptions, ...userOptions };
 
-    const contentContainerElement = document.getElementById(
-        options.containerId
-    );
+    const contentContainerElement = document.getElementById(options.containerId);
 
     if (!contentContainerElement) {
         console.error(
@@ -38,22 +36,20 @@ const init = (userOptions) => {
         return;
     }
 
-    const tocContainerElement = document.getElementById(
-        ids.tocContainerElement
-    );
+    const tocContainerElement = document.getElementById(ids.tocContainerElement);
 
     if (!tocContainerElement) {
         console.error(
             [
                 `Table of contents container with ID '${ids.tocContainerElement}' could not be found.`,
                 `Ensure that you have an element with ID '${ids.tocContainerElement}' created and try again.`,
-            ].join(" ")
+            ].join(' ')
         );
         return;
     }
 
     const headerElements = contentContainerElement.querySelectorAll(
-        options.headerSelectors.join(", ")
+        options.headerSelectors.join(', ')
     );
 
     if (headerElements.length === 0) {
@@ -77,16 +73,11 @@ const init = (userOptions) => {
             header.id = toKebabCase(header.innerText);
         }
 
-        const headerLinkElement = createHeaderLinkElement(
-            header.id,
-            header.innerText
-        );
+        const headerLinkElement = createHeaderLinkElement(header.id, header.innerText);
         tocContainerElement.append(headerLinkElement);
     }
 
-    const headerLinkElements = document.getElementsByClassName(
-        classes.headerLinkElement
-    );
+    const headerLinkElements = document.getElementsByClassName(classes.headerLinkElement);
 
     const toggleHeaderLinkClasses = () => {
         for (const header of headerLinkElements) {
