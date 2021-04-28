@@ -1,3 +1,4 @@
+import { logError } from './utils/logError';
 import { toKebabCase } from './utils/toKebabCase';
 import { defaultOptions, selectors } from './constants';
 import './styles.css';
@@ -30,7 +31,7 @@ const init = (userOptions) => {
     const contentContainerElement = document.getElementById(options.containerId);
 
     if (!contentContainerElement) {
-        console.error(
+        logError(
             `Table of contents could not be generated for content container with ID '${options.containerId}'.`
         );
         return;
@@ -39,12 +40,10 @@ const init = (userOptions) => {
     const tocContainerElement = document.getElementById(ids.tocContainerElement);
 
     if (!tocContainerElement) {
-        console.error(
-            [
-                `Table of contents container with ID '${ids.tocContainerElement}' could not be found.`,
-                `Ensure that you have an element with ID '${ids.tocContainerElement}' created and try again.`,
-            ].join(' ')
-        );
+        logError([
+            `Table of contents container with ID '${ids.tocContainerElement}' could not be found.`,
+            `Ensure that you have an element with ID '${ids.tocContainerElement}' created and try again.`,
+        ]);
         return;
     }
 
@@ -53,7 +52,7 @@ const init = (userOptions) => {
     );
 
     if (headerElements.length === 0) {
-        console.error(
+        logError(
             `Table of contents could not be generated for selectors '${options.headerSelectors}'.`
         );
         return;
