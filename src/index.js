@@ -95,8 +95,9 @@ const init = (userOptions) => {
         }
     };
 
-    tocContainerElement.addEventListener("mouseover", toggleHeaderLinkClasses);
-    tocContainerElement.addEventListener("mouseout", toggleHeaderLinkClasses);
+    tocContainerElement.onmouseenter = toggleHeaderLinkClasses;
+    tocContainerElement.onmouseleave = toggleHeaderLinkClasses;
 };
 
+// API
 export { init };

@@ -29,13 +29,14 @@
 .toc_header-link {
     font-size: var(--header-link-font-size);
     color: var(--header-link-color);
-    display: inline-block;
     max-width: 100%;
-    margin-bottom: 2px;
+    margin-bottom: 15px;
     text-decoration: none;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    clear: left;
+    float: left;
 }
 
 .toc_header-link:hover {
@@ -47,10 +48,10 @@
 }
 
 .toc_header-link-visible {
-    height: 2rem;
+    height: 1.5rem;
     border-bottom-width: 0;
     transition-property: height;
-    transition: all 0.3s ease-out;
+    transition: all 0.2s ease-out;
 }
 
 .toc_header-link-hidden {
