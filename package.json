@@ -4,14 +4,18 @@
     "description": "Table of contents generator.",
     "main": "index.js",
     "scripts": {
-        "build": "webpack --config webpack.prod.js",
-        "dev": "webpack serve --config webpack.dev.js"
+        "build": "yarn lint && webpack --config webpack.prod.js",
+        "dev": "webpack serve --config webpack.dev.js",
+        "lint": "yarn prettier --write . && yarn eslint ."
     },
     "author": "Zachary D. Snoek",
     "license": "MIT",
     "devDependencies": {
         "css-loader": "^5.2.4",
+        "eslint": "^7.25.0",
+        "eslint-config-prettier": "^8.3.0",
         "mini-css-extract-plugin": "^1.5.0",
+        "prettier": "2.2.1",
         "webpack": "^5.35.1",
         "webpack-cli": "^4.6.0",
         "webpack-merge": "^5.7.3"
