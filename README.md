@@ -2,7 +2,7 @@
 
 [BibleProject](https://bibleproject.com/) had a neat expanding table of contents (ToC) widget shown on their blog posts. This repo contains a simple clone and some examples I built in 2021.
 
-By default, the ToC hides the header characters and displays horizontal lines with matching lengths. On hover, the ToC expands and displays the header title links, which navigate to the headers on click.
+On page load, the ToC hides the header characters and displays horizontal lines with matching lengths. On hover, the ToC expands and displays the header title links, which navigate to the headers on click.
 
 ## Demo
 
