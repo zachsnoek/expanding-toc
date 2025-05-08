@@ -1,4 +1,4 @@
-# Bible Project Expanding Table of Contents Clone
+# Expanding Table of Contents Component
 
 [BibleProject](https://bibleproject.com/) had a neat expanding table of contents (ToC) widget shown on their blog posts. This repo contains a simple clone and some examples I built in 2021.
 
