@@ -1,6 +1,6 @@
-# Bible Project Expanding Table of Contents Clone
+# Expanding Table of Contents Component
 
-[BibleProject](https://bibleproject.com/) had a neat expanding table of contents (ToC) widget shown on their blog posts. This repo contains a simple clone and some examples I built in 2021.
+[BibleProject](https://bibleproject.com/) had a neat expanding table of contents (ToC) component shown on their blog posts. This repo contains a simple clone and some examples I built in 2021.
 
 On page load, the ToC hides the header characters and displays horizontal lines with matching lengths. On hover, the ToC expands and displays the header title links, which navigate to the headers on click.
 
@@ -10,7 +10,7 @@ https://www.loom.com/share/7e0ec001a2d34110b86ce0df792f4527
 
 ## Usage
 
-To add the expanding ToC widget to your page, you'll need to do the following:
+To add the expanding ToC component to your page, you'll need to do the following:
 
 1. Include the ToC styles
 
@@ -29,7 +29,7 @@ To add the expanding ToC widget to your page, you'll need to do the following:
 </div>
 ```
 
-3. Add an empty element for the widget with `id="toc"`
+3. Add an empty element for the component with `id="toc"`
 
 ```html
 <body>
@@ -38,7 +38,7 @@ To add the expanding ToC widget to your page, you'll need to do the following:
 </body>
 ```
 
-4. Include the ToC JavaScript files and initialize the widget
+4. Include the ToC JavaScript files and initialize the component
 
 ```html
 <body>
@@ -88,9 +88,9 @@ Here's a simple example following this setup:
 
 ## API and customization
 
-You can customize the ToC widget to fit your preferences and theming. `init` accepts the following options:
+You can customize the ToC component to fit your preferences and theming. `init` accepts the following options:
 
--   `title`: The title to display above the widget. Set to `false` to hide the title. Defaults to `'Table of Contents'`.
+-   `title`: The title to display above the component. Set to `false` to hide the title. Defaults to `'Table of Contents'`.
 -   `containerId`: The ID of the content container element which contains the ToC headers. Defaults to `'toc-content'`.
 -   `headerSelectors`: An array of CSS selectors that identify the header elements within the targeted `containerId`. Defaults to `['h2', 'h3', 'h4']`.
 
